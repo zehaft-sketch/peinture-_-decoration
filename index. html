@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PEINTURE & DÉCORATION</title>
+<style>
+body{font-family:Arial;background:#f4f1e8;margin:0;text-align:center}
+header{background:#20382b;color:#e4c37a;padding:25px}
+main{padding:15px}
+button{background:#304b3b;color:white;border:0;padding:15px;margin:6px;border-radius:8px;width:90%;font-size:16px}
+#result{background:white;padding:20px;margin-top:15px;border-radius:10px;line-height:2}
+</style>
+</head>
+<body>
+<header>
+<h1>PEINTURE & DÉCORATION</h1>
+<p>التطبيق المهني للطلاء والديكور</p>
+</header>
+<main>
+<h2>مرحبًا بكم 🎨</h2>
+<button onclick="show('الدروس المهنية','تحضير الأسطح، المعجون، الصنفرة، المثبت، الطلاء التأسيسي والطبقات النهائية.')">📚 الدروس المهنية</button>
+<button onclick="show('الطلاء الزخرفي','تأثير الحرير، الرمل، الخرسانة والتشطيبات الحديثة.')">🎨 الطلاء الزخرفي</button>
+<button onclick="show('الأدوات والمواد','فرشاة: Brosse à peindre<br>أسطوانة: Rouleau à peinture<br>طلاء تأسيسي: Primaire<br>مثبت: Fixateur<br>ورق شفاف: Papier calque')">🧰 الأدوات بثلاث لغات</button>
+<button onclick="show('الرسم الفني','أقلام HB وB، الزخارف الهندسية والنباتية، نقل الرسومات والتظليل.')">✏️ الرسم الفني والزخرفة</button>
+<button onclick="show('السلامة المهنية','اقرأ تعليمات المنتجات، وفّر التهوية واستعمل معدات الوقاية المناسبة.')">🦺 السلامة المهنية</button>
+<button onclick="show('حاسبة الطلاء','أدخل المساحة الصافية بالمتر المربع، ومردود اللتر، وعدد الطبقات.')">📐 حاسبة الطلاء</button>
+<div id="result">اختر أحد الأقسام للبدء.</div>
+</main>
+<script>
+function show(title,txt){
+if(title==='حاسبة الطلاء'){
+document.getElementById('result').innerHTML=
+'<h3>حاسبة كمية الطلاء</h3>'+
+'المساحة الصافية (م²)<input id="a" type="number" value="30"><br>'+
+'مردود اللتر (م²)<input id="b" type="number" value="10"><br>'+
+'عدد الطبقات<input id="c" type="number" value="2"><br>'+
+'<button onclick="calc()">احسب الكمية</button>';
+}else{
+document.getElementById('result').innerHTML='<h3>'+title+'</h3>'+txt;
+}
+}
+function calc(){
+let a=Number(document.getElementById('a').value);
+let b=Number(document.getElementById('b').value);
+let c=Number(document.getElementById('c').value);
+if(a<0||b<=0||c<1){
+alert('تحقق من القيم المدخلة');return;
+}
+document.getElementById('result').innerHTML=
+'<h3>نتيجة الحساب</h3>الكمية التقديرية: '+(a*c/b).toFixed(2)+' لتر';
+}
+</script>
+</body>
+</html>
+```
